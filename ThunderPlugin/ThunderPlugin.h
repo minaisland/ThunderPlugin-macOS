@@ -17,3 +17,20 @@ FOUNDATION_EXPORT const unsigned char ThunderPluginVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <ThunderPlugin/PublicHeader.h>
 
 
+@interface XLCreateBTTaskWindowController: NSWindowController
+@end
+
+@interface XLTaskFactory : NSObject
+- (void)hook_onMagnetStatusChange:(id)arg1 state:(id)arg2 torrent:(id)arg3;
+@end
+
+@interface LocalAllViewCtrl: NSViewController
++ (id)sharedController;
+@end
+
+@interface LocalTask: NSObject
+@end
+
+@interface XLCryptoUtil: NSObject
++ (id)md5OfFile:(id)arg1;
+@end

@@ -7,13 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A20DFD9219706F600228850 /* FKTaskModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A20DFD7219706F600228850 /* FKTaskModel.h */; };
+		4A20DFDA219706F600228850 /* FKTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20DFD8219706F600228850 /* FKTaskModel.m */; };
+		4A20DFDD2197103000228850 /* AppDelegate+hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A20DFDB2197103000228850 /* AppDelegate+hook.h */; };
+		4A20DFDE2197103000228850 /* AppDelegate+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20DFDC2197103000228850 /* AppDelegate+hook.m */; };
+		4A529E2B21965B5F00FB34EC /* Thunder+hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E2921965B5F00FB34EC /* Thunder+hook.h */; };
+		4A529E2C21965B5F00FB34EC /* Thunder+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E2A21965B5F00FB34EC /* Thunder+hook.m */; };
+		4A529E3021965BF700FB34EC /* WDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E2E21965BF700FB34EC /* WDHelper.m */; };
+		4A529E3121965BF700FB34EC /* WDHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E2F21965BF700FB34EC /* WDHelper.h */; };
+		4A529E3521965F7700FB34EC /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E3321965F7600FB34EC /* fishhook.c */; };
+		4A529E3621965F7700FB34EC /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E3421965F7600FB34EC /* fishhook.h */; };
+		4A529E3921968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E3721968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h */; };
+		4A529E3A21968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E3821968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m */; };
+		4A529E412196A80C00FB34EC /* ThunderManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E3F2196A80C00FB34EC /* ThunderManager.h */; };
+		4A529E422196A80C00FB34EC /* ThunderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E402196A80C00FB34EC /* ThunderManager.m */; };
+		4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */; };
+		4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */; };
 		4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AE3A3532195E2C0003FD382 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3A3522195E2C0003FD382 /* main.mm */; };
+		4AE3A3562195E40C003FD382 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE3A3552195E40C003FD382 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A20DFD7219706F600228850 /* FKTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKTaskModel.h; sourceTree = "<group>"; };
+		4A20DFD8219706F600228850 /* FKTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKTaskModel.m; sourceTree = "<group>"; };
+		4A20DFDB2197103000228850 /* AppDelegate+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+hook.h"; sourceTree = "<group>"; };
+		4A20DFDC2197103000228850 /* AppDelegate+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+hook.m"; sourceTree = "<group>"; };
+		4A529E2921965B5F00FB34EC /* Thunder+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thunder+hook.h"; sourceTree = "<group>"; };
+		4A529E2A21965B5F00FB34EC /* Thunder+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Thunder+hook.m"; sourceTree = "<group>"; };
+		4A529E2E21965BF700FB34EC /* WDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDHelper.m; sourceTree = "<group>"; };
+		4A529E2F21965BF700FB34EC /* WDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDHelper.h; sourceTree = "<group>"; };
+		4A529E3321965F7600FB34EC /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		4A529E3421965F7600FB34EC /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		4A529E3721968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XLCreateBTTaskWindowController+hook.h"; sourceTree = "<group>"; };
+		4A529E3821968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XLCreateBTTaskWindowController+hook.m"; sourceTree = "<group>"; };
+		4A529E3F2196A80C00FB34EC /* ThunderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThunderManager.h; sourceTree = "<group>"; };
+		4A529E402196A80C00FB34EC /* ThunderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThunderManager.m; sourceTree = "<group>"; };
+		4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Context.h"; sourceTree = "<group>"; };
+		4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Context.m"; sourceTree = "<group>"; };
 		4AE3A3452195E0D7003FD382 /* ThunderPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThunderPlugin.h; sourceTree = "<group>"; };
 		4AE3A3492195E0D7003FD382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AE3A3522195E2C0003FD382 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		4AE3A3552195E40C003FD382 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +57,82 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE3A3562195E40C003FD382 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A20DFD22197062600228850 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A20DFD7219706F600228850 /* FKTaskModel.h */,
+				4A20DFD8219706F600228850 /* FKTaskModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A529E2521965B1100FB34EC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4A529E2621965B2200FB34EC /* Hook */,
+				4A529E3221965F7600FB34EC /* Vendor */,
+				4A529E2D21965BDE00FB34EC /* Utils */,
+				4A20DFD22197062600228850 /* Model */,
+				4AA7E7EF2196B7BB003D2076 /* Common */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4A529E2621965B2200FB34EC /* Hook */ = {
+			isa = PBXGroup;
+			children = (
+				4A529E2921965B5F00FB34EC /* Thunder+hook.h */,
+				4A529E2A21965B5F00FB34EC /* Thunder+hook.m */,
+				4A529E3721968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h */,
+				4A529E3821968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m */,
+				4A20DFDB2197103000228850 /* AppDelegate+hook.h */,
+				4A20DFDC2197103000228850 /* AppDelegate+hook.m */,
+			);
+			path = Hook;
+			sourceTree = "<group>";
+		};
+		4A529E2D21965BDE00FB34EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4A529E2F21965BF700FB34EC /* WDHelper.h */,
+				4A529E2E21965BF700FB34EC /* WDHelper.m */,
+				4A529E3F2196A80C00FB34EC /* ThunderManager.h */,
+				4A529E402196A80C00FB34EC /* ThunderManager.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4A529E3221965F7600FB34EC /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				4A529E3321965F7600FB34EC /* fishhook.c */,
+				4A529E3421965F7600FB34EC /* fishhook.h */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		4AA7E7EF2196B7BB003D2076 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */,
+				4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		4AE3A33B2195E0D7003FD382 = {
 			isa = PBXGroup;
 			children = (
 				4AE3A3472195E0D7003FD382 /* ThunderPlugin */,
 				4AE3A3462195E0D7003FD382 /* Products */,
+				4AE3A3542195E40B003FD382 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -46,10 +147,28 @@
 		4AE3A3472195E0D7003FD382 /* ThunderPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				4A529E2521965B1100FB34EC /* Sources */,
+				4AE3A3512195E284003FD382 /* Supporting Files */,
 				4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */,
 				4AE3A3492195E0D7003FD382 /* Info.plist */,
 			);
 			path = ThunderPlugin;
+			sourceTree = "<group>";
+		};
+		4AE3A3512195E284003FD382 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AE3A3522195E2C0003FD382 /* main.mm */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AE3A3542195E40B003FD382 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AE3A3552195E40C003FD382 /* Cocoa.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,7 +178,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A20DFD9219706F600228850 /* FKTaskModel.h in Headers */,
 				4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */,
+				4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */,
+				4A20DFDD2197103000228850 /* AppDelegate+hook.h in Headers */,
+				4A529E3121965BF700FB34EC /* WDHelper.h in Headers */,
+				4A529E412196A80C00FB34EC /* ThunderManager.h in Headers */,
+				4A529E2B21965B5F00FB34EC /* Thunder+hook.h in Headers */,
+				4A529E3621965F7700FB34EC /* fishhook.h in Headers */,
+				4A529E3921968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +201,7 @@
 				4AE3A3412195E0D7003FD382 /* Frameworks */,
 				4AE3A3422195E0D7003FD382 /* Headers */,
 				4AE3A3432195E0D7003FD382 /* Resources */,
+				4AE3A3502195E114003FD382 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,11 +254,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AE3A3502195E114003FD382 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n# 要注入的的app\napp_name=\"Thunder\"\n# 此framework名字\nframework_name=\"ThunderPlugin\"\napp_bundle_path=\"/Applications/${app_name}.app/Contents/MacOS\"\napp_executable_path=\"${app_bundle_path}/${app_name}\"\napp_executable_backup_path=\"${app_executable_path}_backup\"\nframework_path=\"${app_bundle_path}/${framework_name}.framework\"\n# 备份WeChat原始可执行文件\nif [ ! -f \"$app_executable_backup_path\" ]\nthen\ncp \"$app_executable_path\" \"$app_executable_backup_path\"\nfi\ncp -r \"${BUILT_PRODUCTS_DIR}/${framework_name}.framework\" ${app_bundle_path}\n# 注入动态库\n./insert_dylib --all-yes \"${framework_path}/${framework_name}\" \"$app_executable_backup_path\" \"$app_executable_path\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AE3A3402195E0D7003FD382 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A529E2C21965B5F00FB34EC /* Thunder+hook.m in Sources */,
+				4AE3A3532195E2C0003FD382 /* main.mm in Sources */,
+				4A529E3521965F7700FB34EC /* fishhook.c in Sources */,
+				4A529E422196A80C00FB34EC /* ThunderManager.m in Sources */,
+				4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */,
+				4A20DFDA219706F600228850 /* FKTaskModel.m in Sources */,
+				4A529E3021965BF700FB34EC /* WDHelper.m in Sources */,
+				4A20DFDE2197103000228850 /* AppDelegate+hook.m in Sources */,
+				4A529E3A21968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -238,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
