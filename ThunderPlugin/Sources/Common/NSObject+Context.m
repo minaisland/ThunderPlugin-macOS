@@ -9,6 +9,7 @@
 #import "NSObject+Context.h"
 #import "WDHelper.h"
 #import "ThunderManager.h"
+#import "TaskManager.h"
 
 static void * CreatedBTTaskCtrlPropertyKey = &CreatedBTTaskCtrlPropertyKey;
 static void * TaskListViewCtrlPropertyKey = &TaskListViewCtrlPropertyKey;
@@ -57,7 +58,7 @@ static void * TaskListViewCtrlPropertyKey = &TaskListViewCtrlPropertyKey;
     if (NSObject.taskListViewCtrl == nil) {
         NSObject.taskListViewCtrl = shared;
     } else {
-        NSLog(@"%@", [ThunderManager shared].downloadingTasks);
+        NSLog(@"%@", [TaskManager shared].allTask);
     }
     return shared;
 }
