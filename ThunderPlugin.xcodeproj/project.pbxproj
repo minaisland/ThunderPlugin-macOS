@@ -26,9 +26,11 @@
 		4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE3A3532195E2C0003FD382 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3A3522195E2C0003FD382 /* main.mm */; };
 		4AE3A3562195E40C003FD382 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE3A3552195E40C003FD382 /* Cocoa.framework */; };
+		FE536FAA6C9EAA31A6E2B2D6 /* Pods_ThunderPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CE7829F72770F752AE2E2A /* Pods_ThunderPlugin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42CE7829F72770F752AE2E2A /* Pods_ThunderPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThunderPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A20DFD7219706F600228850 /* FKTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKTaskModel.h; sourceTree = "<group>"; };
 		4A20DFD8219706F600228850 /* FKTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKTaskModel.m; sourceTree = "<group>"; };
 		4A20DFDB2197103000228850 /* AppDelegate+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+hook.h"; sourceTree = "<group>"; };
@@ -50,6 +52,8 @@
 		4AE3A3492195E0D7003FD382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AE3A3522195E2C0003FD382 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		4AE3A3552195E40C003FD382 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AFC094C3C8EF8F0EBEE86566 /* Pods-ThunderPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderPlugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThunderPlugin/Pods-ThunderPlugin.debug.xcconfig"; sourceTree = "<group>"; };
+		C7C290CBD6242308F88FF32A /* Pods-ThunderPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThunderPlugin/Pods-ThunderPlugin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE3A3562195E40C003FD382 /* Cocoa.framework in Frameworks */,
+				FE536FAA6C9EAA31A6E2B2D6 /* Pods_ThunderPlugin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +138,7 @@
 				4AE3A3472195E0D7003FD382 /* ThunderPlugin */,
 				4AE3A3462195E0D7003FD382 /* Products */,
 				4AE3A3542195E40B003FD382 /* Frameworks */,
+				DF9891567C6BED147F6C9689 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,8 +173,18 @@
 			isa = PBXGroup;
 			children = (
 				4AE3A3552195E40C003FD382 /* Cocoa.framework */,
+				42CE7829F72770F752AE2E2A /* Pods_ThunderPlugin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF9891567C6BED147F6C9689 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFC094C3C8EF8F0EBEE86566 /* Pods-ThunderPlugin.debug.xcconfig */,
+				C7C290CBD6242308F88FF32A /* Pods-ThunderPlugin.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AE3A34D2195E0D7003FD382 /* Build configuration list for PBXNativeTarget "ThunderPlugin" */;
 			buildPhases = (
+				1F11D4B44FB3AB7F3B60D68E /* [CP] Check Pods Manifest.lock */,
 				4AE3A3402195E0D7003FD382 /* Sources */,
 				4AE3A3412195E0D7003FD382 /* Frameworks */,
 				4AE3A3422195E0D7003FD382 /* Headers */,
@@ -255,6 +272,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F11D4B44FB3AB7F3B60D68E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ThunderPlugin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4AE3A3502195E114003FD382 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +440,7 @@
 		};
 		4AE3A34E2195E0D7003FD382 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFC094C3C8EF8F0EBEE86566 /* Pods-ThunderPlugin.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -421,6 +461,7 @@
 		};
 		4AE3A34F2195E0D7003FD382 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7C290CBD6242308F88FF32A /* Pods-ThunderPlugin.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
