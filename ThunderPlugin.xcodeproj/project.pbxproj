@@ -25,12 +25,10 @@
 		4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */; };
 		4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE3A3532195E2C0003FD382 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3A3522195E2C0003FD382 /* main.mm */; };
-		4AE3A3562195E40C003FD382 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE3A3552195E40C003FD382 /* Cocoa.framework */; };
-		FE536FAA6C9EAA31A6E2B2D6 /* Pods_ThunderPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CE7829F72770F752AE2E2A /* Pods_ThunderPlugin.framework */; };
+		892EBF7564429D400D187B57 /* libPods-ThunderPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FA82DD88F0E392BD912C5D /* libPods-ThunderPlugin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		42CE7829F72770F752AE2E2A /* Pods_ThunderPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThunderPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A20DFD7219706F600228850 /* FKTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKTaskModel.h; sourceTree = "<group>"; };
 		4A20DFD8219706F600228850 /* FKTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKTaskModel.m; sourceTree = "<group>"; };
 		4A20DFDB2197103000228850 /* AppDelegate+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+hook.h"; sourceTree = "<group>"; };
@@ -51,7 +49,7 @@
 		4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThunderPlugin.h; sourceTree = "<group>"; };
 		4AE3A3492195E0D7003FD382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AE3A3522195E2C0003FD382 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		4AE3A3552195E40C003FD382 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		85FA82DD88F0E392BD912C5D /* libPods-ThunderPlugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThunderPlugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC094C3C8EF8F0EBEE86566 /* Pods-ThunderPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderPlugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThunderPlugin/Pods-ThunderPlugin.debug.xcconfig"; sourceTree = "<group>"; };
 		C7C290CBD6242308F88FF32A /* Pods-ThunderPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThunderPlugin/Pods-ThunderPlugin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,8 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AE3A3562195E40C003FD382 /* Cocoa.framework in Frameworks */,
-				FE536FAA6C9EAA31A6E2B2D6 /* Pods_ThunderPlugin.framework in Frameworks */,
+				892EBF7564429D400D187B57 /* libPods-ThunderPlugin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,8 +169,7 @@
 		4AE3A3542195E40B003FD382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4AE3A3552195E40C003FD382 /* Cocoa.framework */,
-				42CE7829F72770F752AE2E2A /* Pods_ThunderPlugin.framework */,
+				85FA82DD88F0E392BD912C5D /* libPods-ThunderPlugin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -277,15 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ThunderPlugin-checkManifestLockResult.txt",
 			);

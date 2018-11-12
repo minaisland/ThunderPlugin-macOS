@@ -1,11 +1,9 @@
-platform :ios, '9.0'
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
-use_frameworks!
+platform :osx, '10.12'
 inhibit_all_warnings!
 
 target 'ThunderPlugin' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-
-  # Pods for ThunderPlugin
+    pod 'JSONModel'
 
 end

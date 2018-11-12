@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "ThunderPlugin.h"
+#import <JSONModel/JSONModel.h>
 
-@interface FKTaskModel : NSObject
+@interface FKTaskModel : JSONModel
 
 @property (nonatomic, assign) long long taskid;
 @property (nonatomic, assign) long long fileSize;

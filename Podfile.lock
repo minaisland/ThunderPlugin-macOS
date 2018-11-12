@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: abbe5147c58ba767152c2e3e603e2ca6bfccb666
+PODS:
+  - JSONModel (1.8.0)
+
+DEPENDENCIES:
+  - JSONModel
+
+SPEC REPOS:
+  https://mirrors.tuna.tsinghua.edu.cn/git/cocoapods/specs.git:
+    - JSONModel
+
+SPEC CHECKSUMS:
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+
+PODFILE CHECKSUM: bc2fd23d8ed161ac780f501544c37bcd161db737
 
 COCOAPODS: 1.5.3
