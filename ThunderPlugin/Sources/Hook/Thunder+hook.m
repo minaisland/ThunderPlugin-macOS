@@ -31,9 +31,7 @@ static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applicat
 
     wd_hookMethod(objc_getClass("XLHostPageController"), @selector(navigationItems), [self class], @selector(hook_navigationItems));
     
-    wd_hookMethod(objc_getClass("XLHostPageController"), @selector(hook_hostController), [self class], @selector(hook_navigationItems));
-    
-    
+    wd_hookMethod(objc_getClass("XLBundleManager"), @selector(hostController:loadPluginsWithIdentifier:), [self class], @selector(hook_hostController:loadPluginsWithIdentifier:));
     
 }
 
@@ -71,10 +69,6 @@ static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applicat
             [navCtr performSelector:@selector(selectItemWithIdentifier:) withObject:kNavFilmReviewPage afterDelay:0.2];
         }
     }
-}
-
-- (void)hook_setMainView:(id)arg1 {
-    [self hook_setMainView:arg1];
 }
 
 - (id)hook_hostController:(id)arg1 loadPluginsWithIdentifier:(NSString *)arg2 {

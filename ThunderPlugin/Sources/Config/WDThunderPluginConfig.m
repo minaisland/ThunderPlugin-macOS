@@ -22,7 +22,7 @@
     if (self = [super init]) {
         self.featuredPageDisable = true;
         self.filmReviewPageDisable = true;
-//        self.advertisingPluginDisable = true;
+        self.advertisingPluginDisable = true;
     }
     return self;
 }

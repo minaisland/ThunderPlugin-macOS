@@ -35,8 +35,16 @@ FOUNDATION_EXPORT const unsigned char ThunderPluginVersionString[];
 + (id)md5OfFile:(id)arg1;
 @end
 
+@interface XLMainWindowController: NSObject
+- (void)_loadDefaultPage;
+@end
+
 @interface XLHostPageController: NSObject
 @property (nonatomic) id navigationItems;
+@end
+
+@interface XLBundleManager: NSObject
+- (id)hostController:(id)arg1 loadPluginsWithIdentifier:(NSString *)arg2;
 @end
 
 @interface XLNavigationViewController: NSObject
