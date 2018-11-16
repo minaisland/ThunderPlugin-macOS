@@ -5,5 +5,6 @@ inhibit_all_warnings!
 
 target 'ThunderPlugin' do
     pod 'JSONModel'
+    pod "GCDWebServer", "~> 3.0"
 
 end

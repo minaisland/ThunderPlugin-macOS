@@ -8,9 +8,14 @@
 
 #import "Thunder+hook.h"
 #import "WDHelper.h"
-#import "fishhook.h"
+#import "WDThunderPluginConfig.h"
 
 static void * CreateBTTaskCtrlPropertyKey = &CreateBTTaskCtrlPropertyKey;
+static NSString * const kNavFeaturedPage = @"com.xunlei.plugin.page.featuredpage";
+static NSString * const kNavFilmReviewPage = @"com.xunlei.plugin.page.filmreview";
+static NSString * const kNavDownloadingPage = @"com.xunlei.embeddedplugin.view.downloading";
+static NSString * const kNavCompletionPage = @"com.xunlei.embeddedplugin.view.completion";
+static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applications";
 
 @implementation NSObject (hook)
 
@@ -22,7 +27,12 @@ static void * CreateBTTaskCtrlPropertyKey = &CreateBTTaskCtrlPropertyKey;
     
     wd_hookMethod(objc_getClass("XLTaskFactory"), @selector(createBTTaskWindowControllerWithPath:), [self class], @selector(hook_createBTTaskWindowControllerWithPath:));
     
-    wd_hookMethod(objc_getClass("XLHostMenuController"), @selector(showLiveupdateWindow), [self class], @selector(hook_showLiveupdateWindow));
+    wd_hookMethod(objc_getClass("XLMainWindowController"), @selector(_loadDefaultPage), [self class], @selector(hook_loadDefaultPage));
+
+    wd_hookMethod(objc_getClass("XLHostPageController"), @selector(navigationItems), [self class], @selector(hook_navigationItems));
+    
+    wd_hookMethod(objc_getClass("XLHostPageController"), @selector(hook_hostController), [self class], @selector(hook_navigationItems));
+    
     
     
 }
@@ -50,5 +60,54 @@ static void * CreateBTTaskCtrlPropertyKey = &CreateBTTaskCtrlPropertyKey;
 //    [self hook_showLiveupdateWindow];
 }
 
+- (void)hook_loadDefaultPage {
+    [self hook_loadDefaultPage];
+    XLNavigationViewController *navCtr = [self valueForKeyPath:@"navigationController"];
+    // 用延迟执行解决切换tab时的黑色闪烁
+    if ([WDThunderPluginConfig shared].featuredPageDisable) {
+        if ([WDThunderPluginConfig shared].filmReviewPageDisable) {
+            [navCtr performSelector:@selector(selectItemWithIdentifier:) withObject:kNavDownloadingPage afterDelay:0.2];
+        } else {
+            [navCtr performSelector:@selector(selectItemWithIdentifier:) withObject:kNavFilmReviewPage afterDelay:0.2];
+        }
+    }
+}
+
+- (void)hook_setMainView:(id)arg1 {
+    [self hook_setMainView:arg1];
+}
+
+- (id)hook_hostController:(id)arg1 loadPluginsWithIdentifier:(NSString *)arg2 {
+    if ([arg2 containsString:@"advertising"] && [WDThunderPluginConfig shared].advertisingPluginDisable) {
+        return nil;
+    }
+    return [self hook_hostController:arg1 loadPluginsWithIdentifier:arg2];
+}
+
+/**
+ 调整导航栏选项，选择性隐藏
+
+ @return 导航栏Item
+ */
+- (id)hook_navigationItems {
+    NSMutableArray *navigationItems = [self hook_navigationItems];
+    NSMutableArray *tempItems = [navigationItems mutableCopy];
+    for (NSView *navView in navigationItems) {
+        NSString *identifier = [navView valueForKeyPath:@"identifier"];
+        if ([identifier isEqualToString:kNavFeaturedPage] && [WDThunderPluginConfig shared].featuredPageDisable) {
+            [tempItems removeObject:navView];
+        } else if ([identifier isEqualToString:kNavFilmReviewPage] && [WDThunderPluginConfig shared].filmReviewPageDisable) {
+            [tempItems removeObject:navView];
+        }
+    }
+    NSMutableDictionary *navigationItemMap = [self valueForKeyPath:@"navigationItemMap"];
+    if ([WDThunderPluginConfig shared].featuredPageDisable) {
+        [navigationItemMap removeObjectForKey:kNavFeaturedPage];
+    }
+    if ([WDThunderPluginConfig shared].filmReviewPageDisable) {
+        [navigationItemMap removeObjectForKey:kNavFilmReviewPage];
+    }
+    return tempItems;
+}
 
 @end

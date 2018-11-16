@@ -34,3 +34,11 @@ FOUNDATION_EXPORT const unsigned char ThunderPluginVersionString[];
 @interface XLCryptoUtil: NSObject
 + (id)md5OfFile:(id)arg1;
 @end
+
+@interface XLHostPageController: NSObject
+@property (nonatomic) id navigationItems;
+@end
+
+@interface XLNavigationViewController: NSObject
+- (void)selectItemWithIdentifier:(id)arg1;
+@end

@@ -27,6 +27,8 @@
 		4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */; };
 		4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE3A3532195E2C0003FD382 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3A3522195E2C0003FD382 /* main.mm */; };
+		4AF6568E219EB4670017626E /* WDThunderPluginConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AF6568C219EB4670017626E /* WDThunderPluginConfig.h */; };
+		4AF6568F219EB4670017626E /* WDThunderPluginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF6568D219EB4670017626E /* WDThunderPluginConfig.m */; };
 		892EBF7564429D400D187B57 /* libPods-ThunderPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FA82DD88F0E392BD912C5D /* libPods-ThunderPlugin.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThunderPlugin.h; sourceTree = "<group>"; };
 		4AE3A3492195E0D7003FD382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AE3A3522195E2C0003FD382 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		4AF6568C219EB4670017626E /* WDThunderPluginConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDThunderPluginConfig.h; sourceTree = "<group>"; };
+		4AF6568D219EB4670017626E /* WDThunderPluginConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDThunderPluginConfig.m; sourceTree = "<group>"; };
 		85FA82DD88F0E392BD912C5D /* libPods-ThunderPlugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThunderPlugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC094C3C8EF8F0EBEE86566 /* Pods-ThunderPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderPlugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThunderPlugin/Pods-ThunderPlugin.debug.xcconfig"; sourceTree = "<group>"; };
 		C7C290CBD6242308F88FF32A /* Pods-ThunderPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderPlugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThunderPlugin/Pods-ThunderPlugin.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 				4A529E3221965F7600FB34EC /* Vendor */,
 				4A529E2D21965BDE00FB34EC /* Utils */,
 				4A20DFD22197062600228850 /* Model */,
+				4AF6568B219EB4420017626E /* Config */,
 				4AA7E7EF2196B7BB003D2076 /* Common */,
 				4A20DFDF2199CC7900228850 /* Manager */,
 			);
@@ -188,6 +193,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4AF6568B219EB4420017626E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4AF6568C219EB4670017626E /* WDThunderPluginConfig.h */,
+				4AF6568D219EB4670017626E /* WDThunderPluginConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		DF9891567C6BED147F6C9689 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A20DFD9219706F600228850 /* FKTaskModel.h in Headers */,
+				4AF6568E219EB4670017626E /* WDThunderPluginConfig.h in Headers */,
 				4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */,
 				4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */,
 				4A20DFDD2197103000228850 /* AppDelegate+hook.h in Headers */,
@@ -323,6 +338,7 @@
 			files = (
 				4A529E2C21965B5F00FB34EC /* Thunder+hook.m in Sources */,
 				4AE3A3532195E2C0003FD382 /* main.mm in Sources */,
+				4AF6568F219EB4670017626E /* WDThunderPluginConfig.m in Sources */,
 				4A529E3521965F7700FB34EC /* fishhook.c in Sources */,
 				4A529E422196A80C00FB34EC /* ThunderManager.m in Sources */,
 				4A20DFE32199CDAD00228850 /* TaskManager.m in Sources */,
