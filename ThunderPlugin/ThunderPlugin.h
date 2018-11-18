@@ -50,3 +50,17 @@ FOUNDATION_EXPORT const unsigned char ThunderPluginVersionString[];
 @interface XLNavigationViewController: NSObject
 - (void)selectItemWithIdentifier:(id)arg1;
 @end
+
+@interface TasksCategoryMgr: NSObject
++ (id)sharedMgr;
+@end
+
+@interface XLLoginSession: NSObject
+- (void)userLogin:(id)arg1 password:(id)arg2;
+@end
+
+@interface XLLoginManager: NSObject
++ (XLLoginManager *)manager;
+- (XLLoginSession *)loginSession;
+- (void)sessionDidLoginFail:(id)arg1 loginType:(long long)arg2 loginInfo:(id)arg3 error:(long long)arg4 errorDescription:(id)arg5;
+@end

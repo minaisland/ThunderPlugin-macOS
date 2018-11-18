@@ -8,14 +8,21 @@
 
 #import "Thunder+hook.h"
 #import "WDHelper.h"
+#import "PreferencesHelper.h"
 #import "WDThunderPluginConfig.h"
 
-static void * CreateBTTaskCtrlPropertyKey = &CreateBTTaskCtrlPropertyKey;
 static NSString * const kNavFeaturedPage = @"com.xunlei.plugin.page.featuredpage";
 static NSString * const kNavFilmReviewPage = @"com.xunlei.plugin.page.filmreview";
 static NSString * const kNavDownloadingPage = @"com.xunlei.embeddedplugin.view.downloading";
 static NSString * const kNavCompletionPage = @"com.xunlei.embeddedplugin.view.completion";
 static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applications";
+
+typedef enum {
+    Login = 0,
+    Loginkey = 1,
+    Sessionlogin = 3,
+    Smslogin = 4
+} XLLoginType;
 
 @implementation NSObject (hook)
 
@@ -32,6 +39,10 @@ static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applicat
     wd_hookMethod(objc_getClass("XLHostPageController"), @selector(navigationItems), [self class], @selector(hook_navigationItems));
     
     wd_hookMethod(objc_getClass("XLBundleManager"), @selector(hostController:loadPluginsWithIdentifier:), [self class], @selector(hook_hostController:loadPluginsWithIdentifier:));
+    
+    wd_hookMethod(objc_getClass("XLLoginManager"), @selector(sessionDidLoginFail:loginType:loginInfo:error:errorDescription:), [self class], @selector(hook_sessionDidLoginFail:loginType:loginInfo:error:errorDescription:));
+    
+    wd_hookMethod(objc_getClass("XLLoginManager"), @selector(userLogin:password:), [self class], @selector(hook_userLogin:password:));
     
 }
 
@@ -72,7 +83,7 @@ static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applicat
 }
 
 - (id)hook_hostController:(id)arg1 loadPluginsWithIdentifier:(NSString *)arg2 {
-    if ([arg2 containsString:@"advertising"] && [WDThunderPluginConfig shared].advertisingPluginDisable) {
+    if ([WDThunderPluginConfig shared].advertisingPluginDisable && [arg2 containsString:@"advertising"]) {
         return nil;
     }
     return [self hook_hostController:arg1 loadPluginsWithIdentifier:arg2];
@@ -88,9 +99,9 @@ static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applicat
     NSMutableArray *tempItems = [navigationItems mutableCopy];
     for (NSView *navView in navigationItems) {
         NSString *identifier = [navView valueForKeyPath:@"identifier"];
-        if ([identifier isEqualToString:kNavFeaturedPage] && [WDThunderPluginConfig shared].featuredPageDisable) {
+        if ([WDThunderPluginConfig shared].featuredPageDisable && [identifier isEqualToString:kNavFeaturedPage]) {
             [tempItems removeObject:navView];
-        } else if ([identifier isEqualToString:kNavFilmReviewPage] && [WDThunderPluginConfig shared].filmReviewPageDisable) {
+        } else if ( [WDThunderPluginConfig shared].filmReviewPageDisable && [identifier isEqualToString:kNavFilmReviewPage]) {
             [tempItems removeObject:navView];
         }
     }
@@ -102,6 +113,23 @@ static NSString * const kNavApplicationsPage = @"com.xunlei.plugin.page.applicat
         [navigationItemMap removeObjectForKey:kNavFilmReviewPage];
     }
     return tempItems;
+}
+
+- (void)hook_sessionDidLoginFail:(id)arg1 loginType:(XLLoginType)arg2 loginInfo:(id)arg3 error:(long long)arg4 errorDescription:(id)arg5 {
+    // 身份信息失效后后用用户名和密码登录
+    if (arg2 == Loginkey && arg4 == 15 && [WDThunderPluginConfig shared].userTxtPassword != nil) {
+        XLLoginSession *loginSession = [[objc_getClass("XLLoginManager") manager] loginSession];
+        [loginSession performSelector:@selector(userLogin:password:)
+                           withObject:[PreferencesHelper userTxtUsername]
+                           withObject:[WDThunderPluginConfig shared].userTxtPassword];
+    } else {
+        [self hook_sessionDidLoginFail:arg1 loginType:arg2 loginInfo:arg3 error:arg4 errorDescription:arg5];
+    }
+}
+
+- (void)hook_userLogin:(id)arg1 password:(id)arg2 {
+    [self hook_userLogin:arg1 password:arg2];
+    [WDThunderPluginConfig shared].userTxtPassword = arg2;
 }
 
 @end

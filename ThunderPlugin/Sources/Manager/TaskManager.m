@@ -52,7 +52,7 @@
 }
 
 - (NSMutableArray *)getTasksForKeyPath:(NSString *)keyPath {
-    id mgr = [objc_getClass("TasksCategoryMgr") performSelector:@selector(sharedMgr)];
+    TasksCategoryMgr *mgr = [objc_getClass("TasksCategoryMgr") performSelector:@selector(sharedMgr)];
     NSMutableArray *newArray = [NSMutableArray array];
     for (LocalTask *item in [mgr valueForKeyPath:keyPath]) {
         [newArray addObject:[[FKTaskModel alloc] initWithLocalTask:item]];

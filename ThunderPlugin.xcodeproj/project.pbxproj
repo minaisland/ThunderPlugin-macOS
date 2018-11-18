@@ -13,6 +13,8 @@
 		4A20DFDE2197103000228850 /* AppDelegate+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20DFDC2197103000228850 /* AppDelegate+hook.m */; };
 		4A20DFE22199CDAD00228850 /* TaskManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A20DFE02199CDAD00228850 /* TaskManager.h */; };
 		4A20DFE32199CDAD00228850 /* TaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20DFE12199CDAD00228850 /* TaskManager.m */; };
+		4A47675B21A0E89E004152E1 /* PreferencesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A47675921A0E89E004152E1 /* PreferencesHelper.h */; };
+		4A47675C21A0E89E004152E1 /* PreferencesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A47675A21A0E89E004152E1 /* PreferencesHelper.m */; };
 		4A529E2B21965B5F00FB34EC /* Thunder+hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E2921965B5F00FB34EC /* Thunder+hook.h */; };
 		4A529E2C21965B5F00FB34EC /* Thunder+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E2A21965B5F00FB34EC /* Thunder+hook.m */; };
 		4A529E3021965BF700FB34EC /* WDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E2E21965BF700FB34EC /* WDHelper.m */; };
@@ -39,6 +41,8 @@
 		4A20DFDC2197103000228850 /* AppDelegate+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+hook.m"; sourceTree = "<group>"; };
 		4A20DFE02199CDAD00228850 /* TaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
 		4A20DFE12199CDAD00228850 /* TaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskManager.m; sourceTree = "<group>"; };
+		4A47675921A0E89E004152E1 /* PreferencesHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesHelper.h; sourceTree = "<group>"; };
+		4A47675A21A0E89E004152E1 /* PreferencesHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesHelper.m; sourceTree = "<group>"; };
 		4A529E2921965B5F00FB34EC /* Thunder+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thunder+hook.h"; sourceTree = "<group>"; };
 		4A529E2A21965B5F00FB34EC /* Thunder+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Thunder+hook.m"; sourceTree = "<group>"; };
 		4A529E2E21965BF700FB34EC /* WDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDHelper.m; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				4A529E2E21965BF700FB34EC /* WDHelper.m */,
 				4A529E3F2196A80C00FB34EC /* ThunderManager.h */,
 				4A529E402196A80C00FB34EC /* ThunderManager.m */,
+				4A47675921A0E89E004152E1 /* PreferencesHelper.h */,
+				4A47675A21A0E89E004152E1 /* PreferencesHelper.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 				4A529E3621965F7700FB34EC /* fishhook.h in Headers */,
 				4A529E3921968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h in Headers */,
 				4A20DFE22199CDAD00228850 /* TaskManager.h in Headers */,
+				4A47675B21A0E89E004152E1 /* PreferencesHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +351,7 @@
 				4A20DFE32199CDAD00228850 /* TaskManager.m in Sources */,
 				4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */,
 				4A20DFDA219706F600228850 /* FKTaskModel.m in Sources */,
+				4A47675C21A0E89E004152E1 /* PreferencesHelper.m in Sources */,
 				4A529E3021965BF700FB34EC /* WDHelper.m in Sources */,
 				4A20DFDE2197103000228850 /* AppDelegate+hook.m in Sources */,
 				4A529E3A21968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m in Sources */,

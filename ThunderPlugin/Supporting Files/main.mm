@@ -10,7 +10,6 @@
 #import "AppDelegate+hook.h"
 #import "Thunder+hook.h"
 #import "XLCreateBTTaskWindowController+hook.h"
-#import "ThunderManager.h"
 #import "NSObject+Context.h"
 
 static void __attribute__((constructor)) initialize(void) {

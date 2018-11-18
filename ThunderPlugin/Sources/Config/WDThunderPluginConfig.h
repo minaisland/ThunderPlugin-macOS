@@ -13,6 +13,7 @@
 @property (nonatomic, assign) BOOL featuredPageDisable; //禁止加载【精选】选项
 @property (nonatomic, assign) BOOL filmReviewPageDisable; //禁止加载【影评】选项
 @property (nonatomic, assign) BOOL advertisingPluginDisable; //禁止加载【广告】插件
+@property (nonatomic, copy) NSString *userTxtPassword; //登录时保存的明文密码
 
 + (WDThunderPluginConfig *)shared;
 
