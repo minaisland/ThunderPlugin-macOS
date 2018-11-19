@@ -1,16 +1,22 @@
 PODS:
+  - GCDWebServer (3.4.2):
+    - GCDWebServer/Core (= 3.4.2)
+  - GCDWebServer/Core (3.4.2)
   - JSONModel (1.8.0)
 
 DEPENDENCIES:
+  - GCDWebServer (~> 3.0)
   - JSONModel
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/cocoapods/specs.git:
+    - GCDWebServer
     - JSONModel
 
 SPEC CHECKSUMS:
+  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
 
-PODFILE CHECKSUM: bc2fd23d8ed161ac780f501544c37bcd161db737
+PODFILE CHECKSUM: e534dcde866cc8a2a27fc1fdc281a718adbb41ae
 
 COCOAPODS: 1.5.3

@@ -31,7 +31,7 @@
     NSLog(@"%@", noti);
 }
 
-- (NSMutableArray *)allTask {
+- (NSMutableArray *)allTasks {
     return [self getTasksForKeyPath:@"allTasks"];
 }
 

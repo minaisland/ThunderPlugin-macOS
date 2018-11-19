@@ -58,7 +58,7 @@ static void * TaskListViewCtrlPropertyKey = &TaskListViewCtrlPropertyKey;
     if (NSObject.taskListViewCtrl == nil) {
         NSObject.taskListViewCtrl = shared;
     } else {
-        NSLog(@"%@", [TaskManager shared].allTask);
+//        NSLog(@"%@", [TaskManager shared].allTask);
     }
     return shared;
 }

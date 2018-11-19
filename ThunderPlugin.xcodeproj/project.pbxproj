@@ -27,6 +27,8 @@
 		4A529E422196A80C00FB34EC /* ThunderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E402196A80C00FB34EC /* ThunderManager.m */; };
 		4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */; };
 		4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */; };
+		4ACB858A21A2B6BE0047EA23 /* WebServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB858821A2B6BE0047EA23 /* WebServerManager.h */; };
+		4ACB858B21A2B6BE0047EA23 /* WebServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB858921A2B6BE0047EA23 /* WebServerManager.m */; };
 		4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AE3A3532195E2C0003FD382 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3A3522195E2C0003FD382 /* main.mm */; };
 		4AF6568E219EB4670017626E /* WDThunderPluginConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AF6568C219EB4670017626E /* WDThunderPluginConfig.h */; };
@@ -55,6 +57,8 @@
 		4A529E402196A80C00FB34EC /* ThunderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThunderManager.m; sourceTree = "<group>"; };
 		4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Context.h"; sourceTree = "<group>"; };
 		4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Context.m"; sourceTree = "<group>"; };
+		4ACB858821A2B6BE0047EA23 /* WebServerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServerManager.h; sourceTree = "<group>"; };
+		4ACB858921A2B6BE0047EA23 /* WebServerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebServerManager.m; sourceTree = "<group>"; };
 		4AE3A3452195E0D7003FD382 /* ThunderPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE3A3482195E0D7003FD382 /* ThunderPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThunderPlugin.h; sourceTree = "<group>"; };
 		4AE3A3492195E0D7003FD382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 			children = (
 				4A20DFE02199CDAD00228850 /* TaskManager.h */,
 				4A20DFE12199CDAD00228850 /* TaskManager.m */,
+				4ACB858821A2B6BE0047EA23 /* WebServerManager.h */,
+				4ACB858921A2B6BE0047EA23 /* WebServerManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 			files = (
 				4A20DFD9219706F600228850 /* FKTaskModel.h in Headers */,
 				4AF6568E219EB4670017626E /* WDThunderPluginConfig.h in Headers */,
+				4ACB858A21A2B6BE0047EA23 /* WebServerManager.h in Headers */,
 				4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */,
 				4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */,
 				4A20DFDD2197103000228850 /* AppDelegate+hook.h in Headers */,
@@ -345,6 +352,7 @@
 			files = (
 				4A529E2C21965B5F00FB34EC /* Thunder+hook.m in Sources */,
 				4AE3A3532195E2C0003FD382 /* main.mm in Sources */,
+				4ACB858B21A2B6BE0047EA23 /* WebServerManager.m in Sources */,
 				4AF6568F219EB4670017626E /* WDThunderPluginConfig.m in Sources */,
 				4A529E3521965F7700FB34EC /* fishhook.c in Sources */,
 				4A529E422196A80C00FB34EC /* ThunderManager.m in Sources */,

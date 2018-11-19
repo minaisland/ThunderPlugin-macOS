@@ -10,7 +10,7 @@
 
 @interface TaskManager : NSObject
 
-@property (nonatomic) NSMutableArray *allTask;
+@property (nonatomic) NSMutableArray *allTasks;
 @property (nonatomic) NSMutableArray *downloadingTasks;
 @property (nonatomic) NSMutableArray *completedTasks;
 @property (nonatomic) NSMutableArray *deletedTasks;
