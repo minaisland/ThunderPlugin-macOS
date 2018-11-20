@@ -18,5 +18,6 @@ static void __attribute__((constructor)) initialize(void) {
     [NSObject hookThunder];
     [NSObject hookCreateBTTask];
     [NSObject hookAppDelegate];
+
 }
 

@@ -18,4 +18,6 @@
 
 + (TaskManager *)shared;
 
+- (void)createTaskWithURL:(NSString *)urlString;
+
 @end

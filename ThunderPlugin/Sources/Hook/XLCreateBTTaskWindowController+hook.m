@@ -8,7 +8,6 @@
 
 #import "XLCreateBTTaskWindowController+hook.h"
 #import "WDHelper.h"
-#import "ThunderManager.h"
 
 @implementation NSObject (XLCreateBTTaskWindowController)
 
@@ -26,18 +25,8 @@
 
 //- (void)hook_windowDidLoad {
 //    NSLog(@"hook_windowDidLoad");
-//    [self performSelector:@selector(delayTouchUp:) withObject:self afterDelay:1];
 //    [self hook_windowDidLoad];
 //}
-
-- (void)delayTouchUp:(XLCreateBTTaskWindowController *)ctrl {
-    NSLog(@"%@", [ThunderManager shared].taskArray);
-    NSLog(@"%@", [ThunderManager shared].subBTFileInfos);
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        id btn = [ctrl performSelector:@selector(btnDownload) withObject:nil];
-//        [ctrl performSelector:@selector(onClick:) withObject:btn];
-//    });
-}
 
 - (id)hook_subBTFileInfos {
     NSLog(@"hook_subBTFileInfos");

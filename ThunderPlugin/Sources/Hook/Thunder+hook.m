@@ -58,7 +58,7 @@ typedef enum {
 }
 
 - (void)hook_controller:(id)arg1 deliverTask:(id)arg2 withOptions:(id)arg3 {
-    NSLog(@"hook)controller:deliverTask:withOptions:");
+    NSLog(@"hook_controller:deliverTask:withOptions:");
     [self hook_controller:arg1 deliverTask:arg2 withOptions:arg3];
 }
 

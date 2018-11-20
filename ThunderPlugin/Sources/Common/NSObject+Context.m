@@ -8,7 +8,6 @@
 
 #import "NSObject+Context.h"
 #import "WDHelper.h"
-#import "ThunderManager.h"
 #import "TaskManager.h"
 
 static void * CreatedBTTaskCtrlPropertyKey = &CreatedBTTaskCtrlPropertyKey;
@@ -33,13 +32,7 @@ static void * TaskListViewCtrlPropertyKey = &TaskListViewCtrlPropertyKey;
 - (void)hook_windowDidLoad {
     NSLog(@"hook_windowDidLoad");
     NSObject.createdBTTaskCtrl = (XLCreateBTTaskWindowController *)self;
-    [self performSelector:@selector(delayRun) withObject:nil afterDelay:1];
     [self hook_windowDidLoad];
-}
-
-- (void)delayRun {
-    NSLog(@"%@", [ThunderManager shared].taskArray);
-    NSLog(@"%@", [ThunderManager shared].subBTFileInfos);
 }
 
 - (void)hook_setContentArray:(id)arg1 {

@@ -8,6 +8,7 @@
 
 #import "TaskManager.h"
 #import "FKTaskModel.h"
+#import "XLTaskHelper.h"
 #import <objc/runtime.h>
 
 @implementation TaskManager
@@ -29,6 +30,11 @@
 
 - (void)test:(NSNotification *)noti {
     NSLog(@"%@", noti);
+}
+
+- (void)createTaskWithURL:(NSString *)urlString {
+    if (!urlString || [urlString isEqualToString:@""]) return;
+    [XLTaskHelper createTaskWithURL:urlString];
 }
 
 - (NSMutableArray *)allTasks {

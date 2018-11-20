@@ -10,6 +10,7 @@
 #import "TaskManager.h"
 #import "FKTaskModel.h"
 #import <GCDWebServer.h>
+#import <GCDWebServerURLEncodedFormRequest.h>
 #import <GCDWebServerDataResponse.h>
 
 @interface WebServerManager()
@@ -41,12 +42,13 @@ static int port=43800;
                               };
     
     self.webServer = [[GCDWebServer alloc] init];
-    [self addHandleForTask];
+    [self addHandleForGetTask];
+    [self addHandleForCreateTask];
     [self.webServer startWithOptions:options error:nil];
 }
 
 #define WeakSelf(weakSelf)  __weak __typeof(self) weakSelf = self
-- (void)addHandleForTask {
+- (void)addHandleForGetTask {
     WeakSelf(weakSelf);
     [self.webServer addHandlerForMethod:@"GET" path:@"/tasks/all" requestClass:[GCDWebServerRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
         
@@ -72,6 +74,16 @@ static int port=43800;
         
     }];
     
+}
+
+- (void)addHandleForCreateTask {
+    [self.webServer addHandlerForMethod:@"POST" path:@"/task/create" requestClass:[GCDWebServerURLEncodedFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerURLEncodedFormRequest * _Nonnull request) {
+        
+        [[TaskManager shared] createTaskWithURL:request.arguments[@"url"]];
+        
+        return [GCDWebServerResponse responseWithStatusCode:200];
+        
+    }];
 }
 
 - (GCDWebServerDataResponse *)modelToJSONResponseFrom:(NSMutableArray *)array {
