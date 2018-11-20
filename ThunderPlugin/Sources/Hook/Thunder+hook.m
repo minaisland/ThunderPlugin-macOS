@@ -45,7 +45,7 @@ typedef enum {
     
     wd_hookMethod(objc_getClass("XLLoginManager"), @selector(sessionDidLoginFail:loginType:loginInfo:error:errorDescription:), [self class], @selector(hook_sessionDidLoginFail:loginType:loginInfo:error:errorDescription:));
     
-    wd_hookMethod(objc_getClass("XLLoginManager"), @selector(userLogin:password:), [self class], @selector(hook_userLogin:password:));
+    wd_hookMethod(objc_getClass("XLLoginSession"), @selector(userLogin:password:), [self class], @selector(hook_userLogin:password:));
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[WebServerManager shared] startServer];
