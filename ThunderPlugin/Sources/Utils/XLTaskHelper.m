@@ -9,8 +9,13 @@
 #import "XLTaskHelper.h"
 #import "ThunderPlugin.h"
 #import <objc/runtime.h>
+#import "TaskManager.h"
 
 @implementation XLTaskHelper
+
++ (id)defaultXLTaskFactory {
+    return [objc_getClass("XLTaskFactory") performSelector:@selector(defaultFactory)];
+}
 
 /**
  从下载地址解析出文件名
@@ -38,6 +43,21 @@
     return (BOOL)[objc_getClass("DownloadHelper") performSelector:@selector(isEmuleUrlScheme:) withObject:urlString];
 }
 
++ (BOOL)isMagnetUrlScheme:(NSString *)urlString {
+    return (BOOL)[objc_getClass("DownloadHelper") performSelector:@selector(isMagnetUrlScheme:) withObject:urlString];
+}
+
++ (void)testMagnet:(NSString *)urlString {
+    NSString *tmpPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"torrents"];
+    id task = [objc_getClass("XLURLTask") performSelector:@selector(taskWithURL:taskName:) withObject:urlString withObject:nil];
+    [task performSelector:@selector(setDownloadPath:) withObject:tmpPath];
+    int (^block)(int, int) = ^(int x, int y) {
+        int result = x + y;
+        return result;
+    };
+    [objc_getClass("XLTaskCreateHelper") performSelector:@selector(createTask:withBlock:) withObject:task withObject:block];
+}
+
 + (id)createXLURLTaskWithURL:(NSString *)urlString {
     NSString *originUrl;
     if ([self isThunderUrlScheme:urlString]) {
@@ -45,15 +65,21 @@
     } else if ([self isEmuleUrlScheme:urlString]) {
         originUrl = [self replaceEd2kUrl:urlString];
     }
+    if ([self isMagnetUrlScheme:urlString]) {
+        [self testMagnet:urlString];
+        return nil;
+    }
     NSString *filename = [self parseFilenameFromUrl:originUrl];
     return [objc_getClass("XLURLTask") performSelector:@selector(taskWithURL:taskName:) withObject:originUrl withObject:filename];
 }
 
 + (int)createTaskWithURL:(NSString *)urlString {
     id task = [self createXLURLTaskWithURL:urlString];
-    [task performSelector:@selector(setDownloadPath:) withObject:@"~/Downloads"];
-    id taskFactory = [objc_getClass("XLTaskFactory") performSelector:@selector(defaultFactory)];
-    [taskFactory performSelector:@selector(controller:deliverTask:withOptions:) withObject:nil withObject:task];
+    if (task) {
+        [task performSelector:@selector(setDownloadPath:) withObject:@"~/Downloads"];
+        [self.defaultXLTaskFactory performSelector:@selector(controller:deliverTask:withOptions:) withObject:nil withObject:task];
+    }
+    
 //    SEL mySelector = @selector(controller:deliverTask:withOptions:);
 //    NSMethodSignature* signature1 = [objc_getClass("XLTaskFactory") instanceMethodSignatureForSelector:mySelector];
 //    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature1];

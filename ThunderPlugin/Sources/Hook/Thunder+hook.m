@@ -35,6 +35,8 @@ typedef enum {
     
     wd_hookMethod(objc_getClass("XLTaskFactory"), @selector(createBTTaskWindowControllerWithPath:), [self class], @selector(hook_createBTTaskWindowControllerWithPath:));
     
+    wd_hookMethod(objc_getClass("LocalTasksMgr"), @selector(onTaskStateChanged:), [self class], @selector(hook_onTaskStateChanged:));
+
     wd_hookMethod(objc_getClass("XLMainWindowController"), @selector(_loadDefaultPage), [self class], @selector(hook_loadDefaultPage));
 
     wd_hookMethod(objc_getClass("XLHostPageController"), @selector(navigationItems), [self class], @selector(hook_navigationItems));
@@ -135,6 +137,11 @@ typedef enum {
 - (void)hook_userLogin:(id)arg1 password:(id)arg2 {
     [self hook_userLogin:arg1 password:arg2];
     [WDThunderPluginConfig shared].userTxtPassword = arg2;
+}
+
+- (void)hook_onTaskStateChanged:(NSDictionary *)taskInfo {
+    // DSKeyTaskInfoTaskState 1为开始任务   3为任务完成
+    [self hook_onTaskStateChanged:taskInfo];
 }
 
 @end

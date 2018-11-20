@@ -46,7 +46,6 @@ static void * TaskListViewCtrlPropertyKey = &TaskListViewCtrlPropertyKey;
 }
 
 + (id)hook_sharedController {
-    NSLog(@"hook_sharedController");
     id shared = [self hook_sharedController];
     if (NSObject.taskListViewCtrl == nil) {
         NSObject.taskListViewCtrl = shared;
