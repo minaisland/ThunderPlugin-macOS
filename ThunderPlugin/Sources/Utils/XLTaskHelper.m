@@ -26,14 +26,24 @@
     return [objc_getClass("DownloadHelper") performSelector:@selector(decodeThunderUrl:) withObject:urlString];
 }
 
++ (NSString *)replaceEd2kUrl:(NSString *)urlString {
+    return [objc_getClass("DownloadHelper") performSelector:@selector(replaceEd2kUrl:) withObject:urlString];
+}
+
 + (BOOL)isThunderUrlScheme:(NSString *)urlString {
     return (BOOL)[objc_getClass("DownloadHelper") performSelector:@selector(isThunderUrlScheme:) withObject:urlString];
+}
+
++ (BOOL)isEmuleUrlScheme:(NSString *)urlString {
+    return (BOOL)[objc_getClass("DownloadHelper") performSelector:@selector(isEmuleUrlScheme:) withObject:urlString];
 }
 
 + (id)createXLURLTaskWithURL:(NSString *)urlString {
     NSString *originUrl;
     if ([self isThunderUrlScheme:urlString]) {
         originUrl = [self decodeThunderUrl:urlString];
+    } else if ([self isEmuleUrlScheme:urlString]) {
+        originUrl = [self replaceEd2kUrl:urlString];
     }
     NSString *filename = [self parseFilenameFromUrl:originUrl];
     return [objc_getClass("XLURLTask") performSelector:@selector(taskWithURL:taskName:) withObject:originUrl withObject:filename];
