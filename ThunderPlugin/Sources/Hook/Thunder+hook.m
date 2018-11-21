@@ -10,6 +10,7 @@
 #import "WDHelper.h"
 #import "PreferencesHelper.h"
 #import "WDThunderPluginConfig.h"
+#import "TaskManager.h"
 #import "WebServerManager.h"
 
 static NSString * const kNavFeaturedPage = @"com.xunlei.plugin.page.featuredpage";
@@ -46,6 +47,8 @@ typedef enum {
     wd_hookMethod(objc_getClass("XLLoginManager"), @selector(sessionDidLoginFail:loginType:loginInfo:error:errorDescription:), [self class], @selector(hook_sessionDidLoginFail:loginType:loginInfo:error:errorDescription:));
     
     wd_hookMethod(objc_getClass("XLLoginSession"), @selector(userLogin:password:), [self class], @selector(hook_userLogin:password:));
+    
+    wd_hookMethod(objc_getClass("EtmApi"), @selector(getTorrentInfo:withBlock:), [self class], @selector(hook_getTaskInfo:withBlock:));
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [[WebServerManager shared] startServer];
@@ -142,6 +145,11 @@ typedef enum {
 - (void)hook_onTaskStateChanged:(NSDictionary *)taskInfo {
     // DSKeyTaskInfoTaskState 1为开始任务   3为任务完成
     [self hook_onTaskStateChanged:taskInfo];
+    [[TaskManager shared] setOnCompletion:taskInfo];
+}
+                  
+- (void)hook_getTaskInfo:(id)arg1 withBlock:(id)arg2 {
+    [self hook_getTaskInfo:arg1 withBlock:arg2];
 }
 
 @end

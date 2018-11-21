@@ -84,6 +84,14 @@ static int port=43800;
         return [GCDWebServerResponse responseWithStatusCode:200];
         
     }];
+    
+    [self.webServer addHandlerForMethod:@"POST" path:@"/torrent/info" requestClass:[GCDWebServerURLEncodedFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerURLEncodedFormRequest * _Nonnull request) {
+        
+        NSDictionary *data = [[TaskManager shared] torrentInfoWithMagnetURL:request.arguments[@"url"]];
+        
+        return [GCDWebServerDataResponse responseWithJSONObject:data];
+        
+    }];
 }
 
 - (GCDWebServerDataResponse *)modelToJSONResponseFrom:(NSMutableArray *)array {

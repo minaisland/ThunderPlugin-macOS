@@ -20,4 +20,8 @@
 
 - (void)createTaskWithURL:(NSString *)urlString;
 
+- (NSDictionary *)torrentInfoWithMagnetURL:(NSString *)urlString;
+
+- (void)setOnCompletion:(NSDictionary *)info;
+
 @end

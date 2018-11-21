@@ -22,5 +22,8 @@
 
 + (int)createTaskWithURL:(NSString *)urlString;
 
++ (void)parseMagnet:(NSString *)urlString;
+
++ (NSDictionary *)getTorrentInfo:(NSString *)torrentPath;
 
 @end

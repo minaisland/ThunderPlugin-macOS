@@ -47,7 +47,7 @@
     return (BOOL)[objc_getClass("DownloadHelper") performSelector:@selector(isMagnetUrlScheme:) withObject:urlString];
 }
 
-+ (void)testMagnet:(NSString *)urlString {
++ (void)parseMagnet:(NSString *)urlString {
     NSString *tmpPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"torrents"];
     id task = [objc_getClass("XLURLTask") performSelector:@selector(taskWithURL:taskName:) withObject:urlString withObject:nil];
     [task performSelector:@selector(setDownloadPath:) withObject:tmpPath];
@@ -58,16 +58,26 @@
     [objc_getClass("XLTaskCreateHelper") performSelector:@selector(createTask:withBlock:) withObject:task withObject:block];
 }
 
++ (NSDictionary *)getTorrentInfo:(NSString *)torrentPath {
+    __block NSDictionary *torrentInfo;
+    dispatch_group_t group = dispatch_group_create();
+    void (^block)(NSDictionary *) = ^(NSDictionary *info) {
+        torrentInfo = info;
+        dispatch_group_leave(group);
+    };
+    id etmApiShared = [objc_getClass("EtmApi") performSelector:@selector(sharedInstance)];
+    [etmApiShared performSelector:@selector(getTorrentInfo:withBlock:) withObject:torrentPath withObject:block];
+    dispatch_group_enter(group);
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    return torrentInfo;
+}
+
 + (id)createXLURLTaskWithURL:(NSString *)urlString {
     NSString *originUrl;
     if ([self isThunderUrlScheme:urlString]) {
         originUrl = [self decodeThunderUrl:urlString];
     } else if ([self isEmuleUrlScheme:urlString]) {
         originUrl = [self replaceEd2kUrl:urlString];
-    }
-    if ([self isMagnetUrlScheme:urlString]) {
-        [self testMagnet:urlString];
-        return nil;
     }
     NSString *filename = [self parseFilenameFromUrl:originUrl];
     return [objc_getClass("XLURLTask") performSelector:@selector(taskWithURL:taskName:) withObject:originUrl withObject:filename];

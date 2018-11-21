@@ -11,6 +11,12 @@
 #import "XLTaskHelper.h"
 #import <objc/runtime.h>
 
+@interface TaskManager()
+
+@property (nonatomic, copy) void (^onMagnetCompletion)(NSDictionary *info);
+
+@end
+
 @implementation TaskManager
 
 + (TaskManager *)shared {
@@ -32,9 +38,45 @@
     NSLog(@"%@", noti);
 }
 
+/**
+ 该方法十分复杂，套了两层闭包block的值，得用dispatch_groupz阻塞线程才能拿到block中的值
+
+ @param urlString 磁力链接
+ @return 种子信息
+ */
+- (NSDictionary *)torrentInfoWithMagnetURL:(NSString *)urlString {
+    [XLTaskHelper parseMagnet:urlString];
+    dispatch_group_t taskGroup = dispatch_group_create();
+    __block NSDictionary *taskInfo;
+    self.onMagnetCompletion = ^(NSDictionary *info) {
+        if ([info[@"DSKeyTaskInfoURL"] isEqualToString:urlString]) {
+            taskInfo = info;
+            dispatch_group_leave(taskGroup);
+        }
+    };
+    dispatch_group_enter(taskGroup);
+    dispatch_group_t torrentGroup = dispatch_group_create();
+    __block NSDictionary *torrentInfo;
+    dispatch_group_notify(taskGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *torrentPath = [taskInfo[@"DSKeyTaskInfoFilePath"] stringByAppendingPathComponent:taskInfo[@"DSKeyTaskInfoFileName"]];
+        torrentInfo = [XLTaskHelper getTorrentInfo:torrentPath];
+        dispatch_group_leave(torrentGroup);
+    });
+    dispatch_group_enter(torrentGroup);
+    dispatch_group_wait(taskGroup, DISPATCH_TIME_FOREVER);
+    dispatch_group_wait(torrentGroup, DISPATCH_TIME_FOREVER);
+    return torrentInfo;
+}
+
 - (void)createTaskWithURL:(NSString *)urlString {
     if (!urlString || [urlString isEqualToString:@""]) return;
     [XLTaskHelper createTaskWithURL:urlString];
+}
+
+- (void)setOnCompletion:(NSDictionary *)info {
+    if (self.onMagnetCompletion != nil && [info[@"DSKeyTaskInfoTaskState"] integerValue] == 3) {
+        self.onMagnetCompletion(info);
+    }
 }
 
 - (NSMutableArray *)allTasks {
