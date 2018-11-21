@@ -24,6 +24,12 @@
 
 + (void)parseMagnet:(NSString *)urlString;
 
+/**
+ 读取种子文件中的下载列表信息（该方法有线程阻塞的调用，需要在异步方法中执行）
+ 
+ @param torrentPath 种子路径
+ @return 下载列表信息
+ */
 + (NSDictionary *)getTorrentInfo:(NSString *)torrentPath;
 
 @end
