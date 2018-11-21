@@ -60,6 +60,7 @@
     dispatch_group_notify(taskGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *torrentPath = [taskInfo[@"DSKeyTaskInfoFilePath"] stringByAppendingPathComponent:taskInfo[@"DSKeyTaskInfoFileName"]];
         torrentInfo = [XLTaskHelper getTorrentInfo:torrentPath];
+        [[NSFileManager defaultManager] removeItemAtPath:torrentPath error:nil];
         dispatch_group_leave(torrentGroup);
     });
     dispatch_group_enter(torrentGroup);
