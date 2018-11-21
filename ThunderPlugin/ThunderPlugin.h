@@ -52,6 +52,10 @@ FOUNDATION_EXPORT const unsigned char ThunderPluginVersionString[];
 - (void)selectItemWithIdentifier:(id)arg1;
 @end
 
+@interface LocalTasksMgr : NSObject
+- (void)onTaskStateChanged:(id)arg1;
+@end
+
 @interface TasksCategoryMgr : NSObject
 + (id)sharedMgr;
 @end
@@ -69,4 +73,12 @@ FOUNDATION_EXPORT const unsigned char ThunderPluginVersionString[];
 @interface XLURLTask : NSObject
 + (id)taskWithURL:(id)arg1 taskName:(id)arg2;
 - (void)setDownloadPath:(id)arg1;
+@end
+
+@interface XLTaskCreateHelper : NSObject
++ (void)createTask:(id)arg1 withBlock:(id)arg2;
+@end
+
+@interface EtmApi : NSObject
+- (void)getTorrentInfo:(id)arg1 withBlock:(id)arg2;
 @end
