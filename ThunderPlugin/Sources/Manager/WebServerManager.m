@@ -10,9 +10,9 @@
 #import "TaskManager.h"
 #import "FKTaskModel.h"
 #import <GCDWebServer.h>
-#import "GCDWebServerMultiPartFormRequest+Extra.h"
-#import <GCDWebServerMultiPartFormRequest.h>
 #import <GCDWebServerDataResponse.h>
+#import <GCDWebServerErrorResponse.h>
+#import "GCDWebServerMultiPartFormRequest+Extra.h"
 
 @interface WebServerManager()
 
@@ -88,9 +88,21 @@ static int port=43800;
     
     [self.webServer addHandlerForMethod:@"POST" path:@"/torrent/info" requestClass:[GCDWebServerMultiPartFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerMultiPartFormRequest * _Nonnull request) {
         
-        NSDictionary *data = [[TaskManager shared] torrentInfoWithMagnetURL:[request argumentValueForKey:@"url"]];
+        NSDictionary *data;
         
-        return [GCDWebServerDataResponse responseWithJSONObject:data];
+        NSString *url = [request argumentValueForKey:@"url"];
+        NSString *torrentPath = [request filePathForKey:@"torrent"];
+        if (url && ![url isEqualToString:@""]) {
+            data = [[TaskManager shared] torrentInfoWithMagnetURL:url];
+        } else if (torrentPath && ![torrentPath isEqualToString:@""]) {
+            data = [[TaskManager shared] torrentInfoWithPath:torrentPath];
+        }
+        
+        if (data) {
+            return [GCDWebServerDataResponse responseWithJSONObject:data];
+        } else {
+            return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_PaymentRequired message:@"parameters `url` or `torrent` must have one is not empty!!"];
+        }
 
     }];
 }

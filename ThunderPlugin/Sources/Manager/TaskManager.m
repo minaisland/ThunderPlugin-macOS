@@ -69,6 +69,10 @@
     return torrentInfo;
 }
 
+- (NSDictionary *)torrentInfoWithPath:(NSString *)torrentPath {
+    return [XLTaskHelper getTorrentInfo:torrentPath];
+}
+
 - (void)createTaskWithURL:(NSString *)urlString {
     if (!urlString || [urlString isEqualToString:@""]) return;
     [XLTaskHelper createTaskWithURL:urlString];

@@ -12,4 +12,6 @@
 
 - (NSString *)argumentValueForKey:(NSString *)key;
 
+- (NSString *)filePathForKey:(NSString *)key;
+
 @end

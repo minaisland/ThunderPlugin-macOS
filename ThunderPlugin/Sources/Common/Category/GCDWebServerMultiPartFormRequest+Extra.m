@@ -11,8 +11,11 @@
 @implementation GCDWebServerMultiPartFormRequest (Extra)
 
 - (NSString *)argumentValueForKey:(NSString *)key {
-    GCDWebServerMultiPartArgument *arg = [self firstArgumentForControlName:key];
-    return arg.string;
+    return [[self firstArgumentForControlName:key] string];
+}
+
+- (NSString *)filePathForKey:(NSString *)key {
+    return [[self firstFileForControlName:key] temporaryPath];
 }
 
 @end
