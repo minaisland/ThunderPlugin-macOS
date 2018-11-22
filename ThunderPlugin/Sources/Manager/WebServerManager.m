@@ -10,7 +10,8 @@
 #import "TaskManager.h"
 #import "FKTaskModel.h"
 #import <GCDWebServer.h>
-#import <GCDWebServerURLEncodedFormRequest.h>
+#import "GCDWebServerMultiPartFormRequest+Extra.h"
+#import <GCDWebServerMultiPartFormRequest.h>
 #import <GCDWebServerDataResponse.h>
 
 @interface WebServerManager()
@@ -77,20 +78,20 @@ static int port=43800;
 }
 
 - (void)addHandleForCreateTask {
-    [self.webServer addHandlerForMethod:@"POST" path:@"/task/create" requestClass:[GCDWebServerURLEncodedFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerURLEncodedFormRequest * _Nonnull request) {
+    [self.webServer addHandlerForMethod:@"POST" path:@"/task/create" requestClass:[GCDWebServerMultiPartFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerMultiPartFormRequest * _Nonnull request) {
         
-        [[TaskManager shared] createTaskWithURL:request.arguments[@"url"]];
+        [[TaskManager shared] createTaskWithURL:[request argumentValueForKey:@"url"]];
         
         return [GCDWebServerResponse responseWithStatusCode:200];
         
     }];
     
-    [self.webServer addHandlerForMethod:@"POST" path:@"/torrent/info" requestClass:[GCDWebServerURLEncodedFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerURLEncodedFormRequest * _Nonnull request) {
+    [self.webServer addHandlerForMethod:@"POST" path:@"/torrent/info" requestClass:[GCDWebServerMultiPartFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerMultiPartFormRequest * _Nonnull request) {
         
-        NSDictionary *data = [[TaskManager shared] torrentInfoWithMagnetURL:request.arguments[@"url"]];
+        NSDictionary *data = [[TaskManager shared] torrentInfoWithMagnetURL:[request argumentValueForKey:@"url"]];
         
         return [GCDWebServerDataResponse responseWithJSONObject:data];
-        
+
     }];
 }
 

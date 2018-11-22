@@ -25,6 +25,8 @@
 		4A529E3621965F7700FB34EC /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E3421965F7600FB34EC /* fishhook.h */; };
 		4A529E3921968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E3721968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h */; };
 		4A529E3A21968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A529E3821968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m */; };
+		4A5DEDB421A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5DEDB221A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.h */; };
+		4A5DEDB521A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DEDB321A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m */; };
 		4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */; };
 		4AA7E7F32196B7D8003D2076 /* NSObject+Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */; };
 		4ACB858A21A2B6BE0047EA23 /* WebServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACB858821A2B6BE0047EA23 /* WebServerManager.h */; };
@@ -55,6 +57,8 @@
 		4A529E3421965F7600FB34EC /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		4A529E3721968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XLCreateBTTaskWindowController+hook.h"; sourceTree = "<group>"; };
 		4A529E3821968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XLCreateBTTaskWindowController+hook.m"; sourceTree = "<group>"; };
+		4A5DEDB221A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GCDWebServerMultiPartFormRequest+Extra.h"; sourceTree = "<group>"; };
+		4A5DEDB321A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GCDWebServerMultiPartFormRequest+Extra.m"; sourceTree = "<group>"; };
 		4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Context.h"; sourceTree = "<group>"; };
 		4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Context.m"; sourceTree = "<group>"; };
 		4ACB858821A2B6BE0047EA23 /* WebServerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServerManager.h; sourceTree = "<group>"; };
@@ -151,9 +155,19 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		4A5DEDB121A6B11400D8D0C4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4A5DEDB221A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.h */,
+				4A5DEDB321A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		4AA7E7EF2196B7BB003D2076 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4A5DEDB121A6B11400D8D0C4 /* Category */,
 				4AA7E7F02196B7D8003D2076 /* NSObject+Context.h */,
 				4AA7E7F12196B7D8003D2076 /* NSObject+Context.m */,
 			);
@@ -243,6 +257,7 @@
 				4A529E3921968B1000FB34EC /* XLCreateBTTaskWindowController+hook.h in Headers */,
 				4A20DFE22199CDAD00228850 /* TaskManager.h in Headers */,
 				4A47675B21A0E89E004152E1 /* PreferencesHelper.h in Headers */,
+				4A5DEDB421A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +375,7 @@
 				4A20DFDA219706F600228850 /* FKTaskModel.m in Sources */,
 				4A47675C21A0E89E004152E1 /* PreferencesHelper.m in Sources */,
 				4A529E3021965BF700FB34EC /* WDHelper.m in Sources */,
+				4A5DEDB521A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m in Sources */,
 				4A20DFDE2197103000228850 /* AppDelegate+hook.m in Sources */,
 				4A529E3A21968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m in Sources */,
 				4A282BCA21A3B3D800181554 /* XLTaskHelper.m in Sources */,
