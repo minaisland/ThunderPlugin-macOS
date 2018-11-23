@@ -14,6 +14,7 @@
 @interface TaskManager()
 
 @property (nonatomic, copy) void (^onMagnetCompletion)(NSDictionary *info);
+@property (nonatomic, strong) NSMutableArray *downloadTorrents;
 
 @end
 
@@ -30,6 +31,7 @@
 - (id)init {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"XLDownloadingTaskChangedNotification" object:nil];
+        self.downloadTorrents = [NSMutableArray array];
     }
     return self;
 }
@@ -57,15 +59,19 @@
     dispatch_group_enter(taskGroup);
     dispatch_group_t torrentGroup = dispatch_group_create();
     __block NSDictionary *torrentInfo;
+    __block NSString *torrentPath;
     dispatch_group_notify(taskGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *torrentPath = [taskInfo[@"DSKeyTaskInfoFilePath"] stringByAppendingPathComponent:taskInfo[@"DSKeyTaskInfoFileName"]];
+        torrentPath = [taskInfo[@"DSKeyTaskInfoFilePath"] stringByAppendingPathComponent:taskInfo[@"DSKeyTaskInfoFileName"]];
         torrentInfo = [XLTaskHelper getTorrentInfo:torrentPath];
-        [[NSFileManager defaultManager] removeItemAtPath:torrentPath error:nil];
         dispatch_group_leave(torrentGroup);
     });
     dispatch_group_enter(torrentGroup);
     dispatch_group_wait(taskGroup, DISPATCH_TIME_FOREVER);
     dispatch_group_wait(torrentGroup, DISPATCH_TIME_FOREVER);
+    @synchronized(self) {
+        [self.downloadTorrents insertObject:torrentPath atIndex:0];
+    }
+//    [[NSFileManager defaultManager] removeItemAtPath:torrentPath error:nil];
     return torrentInfo;
 }
 
