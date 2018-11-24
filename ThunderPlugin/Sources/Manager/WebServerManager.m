@@ -48,7 +48,6 @@ static int port=43800;
     [self.webServer startWithOptions:options error:nil];
 }
 
-#define WeakSelf(weakSelf)  __weak __typeof(self) weakSelf = self
 - (void)addHandleForGetTask {
     WeakSelf(weakSelf);
     [self.webServer addHandlerForMethod:@"GET" path:@"/tasks/all" requestClass:[GCDWebServerRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {

@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  ThunderPlugin
+//
+//  Created by Stanley on 2018/11/24.
+//  Copyright © 2018年 Stanley. All rights reserved.
+//
+
+#ifndef PrefixHeader_h
+#define PrefixHeader_h
+
+// DLog will output like NSLog only when the DEBUG variable is set
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+#define WeakSelf(weakSelf)  __weak __typeof(self) weakSelf = self
+
+#endif /* PrefixHeader_h */
