@@ -22,10 +22,20 @@ static NSFileManager *fileManager;
     if (error) {
         DLog(@"remove file fail: %@", error);
     }
+    NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 }
 
-+ (void)moveFile:(NSString *)filePath to:(NSString *)targetPath {
-    
++ (void)moveFile:(NSString *)filePath to:(NSString *)targetName {
+    BOOL isDir;
+    NSString *cachesDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *torrentsDir = [cachesDir stringByAppendingPathComponent:@"torrents"];
+    [fileManager fileExistsAtPath:torrentsDir isDirectory:&isDir];
+    if (isDir) {
+        [fileManager createDirectoryAtPath:torrentsDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    [fileManager moveItemAtPath:filePath
+                         toPath:[torrentsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.torrent", targetName]]
+                          error:nil];
 }
 
 @end

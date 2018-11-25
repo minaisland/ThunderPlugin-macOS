@@ -10,4 +10,8 @@
 
 @interface FileHelper : NSObject
 
++ (void)removeFile:(NSString *)filePath;
+
++ (void)moveFile:(NSString *)filePath to:(NSString *)targetName;
+
 @end
