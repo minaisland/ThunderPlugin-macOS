@@ -22,7 +22,7 @@
 
 - (NSDictionary *)torrentInfoWithMagnetURL:(NSString *)urlString;
 
-- (NSDictionary *)torrentInfoWithPath:(NSString *)torrentPath;
+- (NSDictionary *)torrentInfoWithFilename:(NSString *)filename path:(NSString *)torrentPath;
 
 - (void)setOnCompletion:(NSDictionary *)info;
 

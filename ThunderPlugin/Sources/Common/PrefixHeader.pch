@@ -18,6 +18,7 @@
 #endif
 
 #define WeakSelf(weakSelf)  __weak __typeof(self) weakSelf = self
-#define CachesDirectory NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+#define kBundleIdentifier [[NSBundle mainBundle] bundleIdentifier]
+#define kThunderCachesDir [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:kBundleIdentifier]
 
 #endif /* PrefixHeader_h */

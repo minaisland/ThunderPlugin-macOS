@@ -27,15 +27,15 @@ static NSFileManager *fileManager;
 
 + (void)moveFile:(NSString *)filePath to:(NSString *)targetName {
     BOOL isDir;
-    NSString *cachesDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
-    NSString *torrentsDir = [cachesDir stringByAppendingPathComponent:@"torrents"];
+    NSString *torrentsDir = [kThunderCachesDir stringByAppendingPathComponent:@"torrents"];
     [fileManager fileExistsAtPath:torrentsDir isDirectory:&isDir];
-    if (isDir) {
+    if (!isDir) {
         [fileManager createDirectoryAtPath:torrentsDir withIntermediateDirectories:YES attributes:nil error:nil];
     }
     [fileManager moveItemAtPath:filePath
                          toPath:[torrentsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.torrent", targetName]]
                           error:nil];
+    [self removeFile:filePath];
 }
 
 @end

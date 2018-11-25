@@ -90,11 +90,11 @@ static int port=43800;
         NSDictionary *data;
         
         NSString *url = [request argumentValueForKey:@"url"];
-        NSString *torrentPath = [request filePathForKey:@"torrent"];
+        GCDWebServerMultiPartFile *file = [request firstFileForControlName:@"torrent"];
         if (url && ![url isEqualToString:@""]) {
             data = [[TaskManager shared] torrentInfoWithMagnetURL:url];
-        } else if (torrentPath && ![torrentPath isEqualToString:@""]) {
-            data = [[TaskManager shared] torrentInfoWithPath:torrentPath];
+        } else if (file) {
+            data = [[TaskManager shared] torrentInfoWithFilename:file.fileName path:file.temporaryPath];
         }
         
         if (data) {

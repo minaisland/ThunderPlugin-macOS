@@ -10,6 +10,7 @@
 #import "FKTaskModel.h"
 #import "XLTaskHelper.h"
 #import <objc/runtime.h>
+#import "FileHelper.h"
 
 @interface TaskManager()
 
@@ -63,6 +64,7 @@
     dispatch_group_notify(taskGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         torrentPath = [taskInfo[@"DSKeyTaskInfoFilePath"] stringByAppendingPathComponent:taskInfo[@"DSKeyTaskInfoFileName"]];
         torrentInfo = [XLTaskHelper getTorrentInfo:torrentPath];
+        [FileHelper moveFile:torrentPath to:[torrentInfo[@"DSKeyTorrentHash"] lowercaseString]];
         dispatch_group_leave(torrentGroup);
     });
     dispatch_group_enter(torrentGroup);
@@ -71,12 +73,13 @@
     @synchronized(self) {
         [self.downloadTorrents insertObject:torrentPath atIndex:0];
     }
-//    [[NSFileManager defaultManager] removeItemAtPath:torrentPath error:nil];
     return torrentInfo;
 }
 
-- (NSDictionary *)torrentInfoWithPath:(NSString *)torrentPath {
-    return [XLTaskHelper getTorrentInfo:torrentPath];
+- (NSDictionary *)torrentInfoWithFilename:(NSString *)filename path:(NSString *)torrentPath {
+    NSDictionary *userInfo = [XLTaskHelper getTorrentInfo:torrentPath];
+    [FileHelper moveFile:torrentPath to:filename];
+    return userInfo;
 }
 
 - (void)createTaskWithURL:(NSString *)urlString {
