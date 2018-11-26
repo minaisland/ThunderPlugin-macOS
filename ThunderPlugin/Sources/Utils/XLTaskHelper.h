@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FKTorrentModel.h"
 
 @interface XLTaskHelper : NSObject
 
@@ -30,6 +31,6 @@
  @param torrentPath 种子路径
  @return 下载列表信息
  */
-+ (NSDictionary *)getTorrentInfo:(NSString *)torrentPath;
++ (FKTorrentModel *)getTorrentInfo:(NSString *)torrentPath;
 
 @end

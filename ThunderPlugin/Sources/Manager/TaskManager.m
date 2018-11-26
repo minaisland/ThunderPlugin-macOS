@@ -59,12 +59,12 @@
     };
     dispatch_group_enter(taskGroup);
     dispatch_group_t torrentGroup = dispatch_group_create();
-    __block NSDictionary *torrentInfo;
+    __block FKTorrentModel *torrentInfo;
     __block NSString *torrentPath;
     dispatch_group_notify(taskGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         torrentPath = [taskInfo[@"DSKeyTaskInfoFilePath"] stringByAppendingPathComponent:taskInfo[@"DSKeyTaskInfoFileName"]];
         torrentInfo = [XLTaskHelper getTorrentInfo:torrentPath];
-        [FileHelper moveFile:torrentPath to:[torrentInfo[@"DSKeyTorrentHash"] lowercaseString]];
+        torrentPath = [FileHelper moveFile:torrentPath to:[torrentInfo.hashValue lowercaseString]];
         dispatch_group_leave(torrentGroup);
     });
     dispatch_group_enter(torrentGroup);
@@ -73,13 +73,13 @@
     @synchronized(self) {
         [self.downloadTorrents insertObject:torrentPath atIndex:0];
     }
-    return torrentInfo;
+    return [torrentInfo toDictionaryAndAddEntries:@{@"torrentPath": torrentPath}];
 }
 
 - (NSDictionary *)torrentInfoWithFilename:(NSString *)filename path:(NSString *)torrentPath {
-    NSDictionary *userInfo = [XLTaskHelper getTorrentInfo:torrentPath];
-    [FileHelper moveFile:torrentPath to:filename];
-    return userInfo;
+    FKTorrentModel *torrentInfo = [XLTaskHelper getTorrentInfo:torrentPath];
+    torrentPath = [FileHelper moveFile:torrentPath to:filename];
+    return [torrentInfo toDictionaryAndAddEntries:@{@"torrentPath": torrentPath}];
 }
 
 - (void)createTaskWithURL:(NSString *)urlString {

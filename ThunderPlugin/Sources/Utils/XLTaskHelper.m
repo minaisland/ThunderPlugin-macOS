@@ -64,7 +64,7 @@
  @param torrentPath 种子路径
  @return 下载列表信息
  */
-+ (NSDictionary *)getTorrentInfo:(NSString *)torrentPath {
++ (FKTorrentModel *)getTorrentInfo:(NSString *)torrentPath {
     __block NSDictionary *torrentInfo;
     dispatch_group_t group = dispatch_group_create();
     void (^block)(NSDictionary *) = ^(NSDictionary *info) {
@@ -75,7 +75,7 @@
     [etmApiShared performSelector:@selector(getTorrentInfo:withBlock:) withObject:torrentPath withObject:block];
     dispatch_group_enter(group);
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    return torrentInfo;
+    return [[FKTorrentModel alloc] initWithDictionary:torrentInfo];
 }
 
 + (id)createXLURLTaskWithURL:(NSString *)urlString {

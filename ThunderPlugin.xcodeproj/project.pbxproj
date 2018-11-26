@@ -18,6 +18,10 @@
 		4A33519921A9978B00114301 /* FileHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A33519721A9978A00114301 /* FileHelper.h */; };
 		4A33519A21A9978B00114301 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A33519821A9978A00114301 /* FileHelper.m */; };
 		4A33519C21A99A6300114301 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4A33519B21A99A6300114301 /* PrefixHeader.pch */; };
+		4A33519F21AC20CE00114301 /* FKTorrentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A33519D21AC20CE00114301 /* FKTorrentModel.h */; };
+		4A3351A021AC20CE00114301 /* FKTorrentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A33519E21AC20CE00114301 /* FKTorrentModel.m */; };
+		4A3351A321AC223B00114301 /* NSDictionary+SafeRead.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3351A121AC223B00114301 /* NSDictionary+SafeRead.h */; };
+		4A3351A421AC223B00114301 /* NSDictionary+SafeRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3351A221AC223B00114301 /* NSDictionary+SafeRead.m */; };
 		4A47675B21A0E89E004152E1 /* PreferencesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A47675921A0E89E004152E1 /* PreferencesHelper.h */; };
 		4A47675C21A0E89E004152E1 /* PreferencesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A47675A21A0E89E004152E1 /* PreferencesHelper.m */; };
 		4A529E2B21965B5F00FB34EC /* Thunder+hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A529E2921965B5F00FB34EC /* Thunder+hook.h */; };
@@ -53,6 +57,10 @@
 		4A33519721A9978A00114301 /* FileHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		4A33519821A9978A00114301 /* FileHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		4A33519B21A99A6300114301 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4A33519D21AC20CE00114301 /* FKTorrentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKTorrentModel.h; sourceTree = "<group>"; };
+		4A33519E21AC20CE00114301 /* FKTorrentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKTorrentModel.m; sourceTree = "<group>"; };
+		4A3351A121AC223B00114301 /* NSDictionary+SafeRead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SafeRead.h"; sourceTree = "<group>"; };
+		4A3351A221AC223B00114301 /* NSDictionary+SafeRead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SafeRead.m"; sourceTree = "<group>"; };
 		4A47675921A0E89E004152E1 /* PreferencesHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesHelper.h; sourceTree = "<group>"; };
 		4A47675A21A0E89E004152E1 /* PreferencesHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesHelper.m; sourceTree = "<group>"; };
 		4A529E2921965B5F00FB34EC /* Thunder+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thunder+hook.h"; sourceTree = "<group>"; };
@@ -97,6 +105,8 @@
 			children = (
 				4A20DFD7219706F600228850 /* FKTaskModel.h */,
 				4A20DFD8219706F600228850 /* FKTaskModel.m */,
+				4A33519D21AC20CE00114301 /* FKTorrentModel.h */,
+				4A33519E21AC20CE00114301 /* FKTorrentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 		4A5DEDB121A6B11400D8D0C4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4A3351A121AC223B00114301 /* NSDictionary+SafeRead.h */,
+				4A3351A221AC223B00114301 /* NSDictionary+SafeRead.m */,
 				4A5DEDB221A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.h */,
 				4A5DEDB321A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m */,
 			);
@@ -257,10 +269,12 @@
 				4A20DFD9219706F600228850 /* FKTaskModel.h in Headers */,
 				4A282BC921A3B3D800181554 /* XLTaskHelper.h in Headers */,
 				4AF6568E219EB4670017626E /* WDThunderPluginConfig.h in Headers */,
+				4A3351A321AC223B00114301 /* NSDictionary+SafeRead.h in Headers */,
 				4ACB858A21A2B6BE0047EA23 /* WebServerManager.h in Headers */,
 				4AE3A34A2195E0D7003FD382 /* ThunderPlugin.h in Headers */,
 				4AA7E7F22196B7D8003D2076 /* NSObject+Context.h in Headers */,
 				4A20DFDD2197103000228850 /* AppDelegate+hook.h in Headers */,
+				4A33519F21AC20CE00114301 /* FKTorrentModel.h in Headers */,
 				4A529E3121965BF700FB34EC /* WDHelper.h in Headers */,
 				4A529E2B21965B5F00FB34EC /* Thunder+hook.h in Headers */,
 				4A529E3621965F7700FB34EC /* fishhook.h in Headers */,
@@ -378,6 +392,7 @@
 			files = (
 				4A529E2C21965B5F00FB34EC /* Thunder+hook.m in Sources */,
 				4AE3A3532195E2C0003FD382 /* main.mm in Sources */,
+				4A3351A421AC223B00114301 /* NSDictionary+SafeRead.m in Sources */,
 				4ACB858B21A2B6BE0047EA23 /* WebServerManager.m in Sources */,
 				4AF6568F219EB4670017626E /* WDThunderPluginConfig.m in Sources */,
 				4A529E3521965F7700FB34EC /* fishhook.c in Sources */,
@@ -387,6 +402,7 @@
 				4A20DFDA219706F600228850 /* FKTaskModel.m in Sources */,
 				4A47675C21A0E89E004152E1 /* PreferencesHelper.m in Sources */,
 				4A529E3021965BF700FB34EC /* WDHelper.m in Sources */,
+				4A3351A021AC20CE00114301 /* FKTorrentModel.m in Sources */,
 				4A5DEDB521A6B37400D8D0C4 /* GCDWebServerMultiPartFormRequest+Extra.m in Sources */,
 				4A20DFDE2197103000228850 /* AppDelegate+hook.m in Sources */,
 				4A529E3A21968B1000FB34EC /* XLCreateBTTaskWindowController+hook.m in Sources */,

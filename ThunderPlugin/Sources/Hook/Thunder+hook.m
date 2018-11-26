@@ -30,8 +30,6 @@ typedef enum {
 
 + (void)hookThunder {
     
-    wd_hookMethod(objc_getClass("XLTaskFactory"), @selector(controller:deliverTask:withOptions:), [self class], @selector(hook_controller:deliverTask:withOptions:));
-
     wd_hookMethod(objc_getClass("XLTaskFactory"), @selector(controller:deliverBTFile:fileIndexs:option:), [self class], @selector(hook_controller:deliverBTFile:fileIndexs:option:));
     
     wd_hookMethod(objc_getClass("XLTaskFactory"), @selector(createBTTaskWindowControllerWithPath:), [self class], @selector(hook_createBTTaskWindowControllerWithPath:));
@@ -60,11 +58,6 @@ typedef enum {
 - (id)hook_createBTTaskWindowControllerWithPath:(id)arg1 {
     NSLog(@"createBTTaskWindowControllerWithPath");
     return [self hook_createBTTaskWindowControllerWithPath:arg1];
-}
-
-- (void)hook_controller:(id)arg1 deliverTask:(id)arg2 withOptions:(id)arg3 {
-    NSLog(@"hook_controller:deliverTask:withOptions:");
-    [self hook_controller:arg1 deliverTask:arg2 withOptions:arg3];
 }
 
 - (void)hook_controller:(id)arg1 deliverBTFile:(id)arg2 fileIndexs:(id)arg3 option:(id)arg4 {
