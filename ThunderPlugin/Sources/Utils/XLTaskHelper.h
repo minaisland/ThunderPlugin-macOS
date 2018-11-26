@@ -23,6 +23,8 @@
 
 + (int)createTaskWithURL:(NSString *)urlString;
 
++ (void)createBTTaskWithName:(NSString *)name btFile:(NSString *)btFile fileIndexs:(NSArray *)fileIndex;
+
 + (void)parseMagnet:(NSString *)urlString;
 
 /**

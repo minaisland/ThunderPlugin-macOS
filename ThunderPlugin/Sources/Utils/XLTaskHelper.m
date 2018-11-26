@@ -106,4 +106,17 @@
     return 0;
 }
 
++ (void)createBTTaskWithName:(NSString *)name btFile:(NSString *)btFile fileIndexs:(NSArray *)fileIndex {
+    NSDictionary *option = @{@"BTTitleName": name, @"BTDownloadSavePath": @"~/Downloads"};
+    SEL mySelector = @selector(controller:deliverBTFile:fileIndexs:option:);
+    NSMethodSignature* signature1 = [objc_getClass("XLTaskFactory") instanceMethodSignatureForSelector:mySelector];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature1];
+    [invocation setTarget:self.defaultXLTaskFactory];
+    [invocation setSelector:mySelector];
+    [invocation setArgument:&btFile atIndex:3];
+    [invocation setArgument:&fileIndex atIndex:4];
+    [invocation setArgument:&option atIndex:5];
+    [invocation invoke];
+}
+
 @end
