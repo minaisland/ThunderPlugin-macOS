@@ -109,19 +109,7 @@ static int port=43800;
         
         NSDictionary *data;
         
-        NSString *url = [request argumentValueForKey:@"url"];
-        GCDWebServerMultiPartFile *torrentFile = [request firstFileForControlName:@"torrent"];
-        if (url && ![url isEqualToString:@""]) {
-            data = [[TaskManager shared] torrentInfoWithMagnetURL:url];
-        } else if (torrentFile) {
-            data = [[TaskManager shared] torrentInfoWithFilename:torrentFile.fileName path:torrentFile.temporaryPath];
-        }
-        
-        if (data) {
-            return [GCDWebServerDataResponse responseWithJSONObject:data];
-        } else {
-            return [GCDWebServerErrorResponse responseWithClientError:kGCDWebServerHTTPStatusCode_PaymentRequired message:@"parameters `url` or `torrent` must have one is not empty!!"];
-        }
+        return [GCDWebServerResponse responseWithStatusCode:200];
         
     }];
 }
