@@ -107,7 +107,11 @@ static int port=43800;
     
     [self.webServer addHandlerForMethod:@"POST" path:@"/bttask/create" requestClass:[GCDWebServerMultiPartFormRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerMultiPartFormRequest * _Nonnull request) {
         
-        NSDictionary *data;
+        NSString *torrent_path = [request argumentValueForKey:@"torrent_path"];
+        NSArray *file_indexs = [[request argumentValueForKey:@"file_indexs"] componentsSeparatedByString:@","];
+        NSString *name = [request argumentValueForKey:@"name"];
+        
+        [[TaskManager shared] createBTTaskWithName:name btFile:torrent_path fileIndexs:file_indexs];
         
         return [GCDWebServerResponse responseWithStatusCode:200];
         

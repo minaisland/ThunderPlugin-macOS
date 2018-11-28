@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        self.baseFolder = [dict stringForKey:@"DSKeyTorrentBaseFolder"];
+        self.titleName = [dict stringForKey:@"DSKeyTorrentBaseFolder"];
         self.subFileCount = [dict longValueForKey:@"DSKeyTorrentSubFileCount"];
         self.subFiles = [FKTorrentSubFileModel arrayWithModels:[dict arrayForKey:@"DSKeyTorrentSubFiles"]];
         self.hashValue = [dict stringForKey:@"DSKeyTorrentHash"];

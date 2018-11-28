@@ -22,7 +22,7 @@
 
 @interface FKTorrentModel : JSONModel
 
-@property (nonatomic, copy) NSString *baseFolder;
+@property (nonatomic, copy) NSString *titleName;
 @property (nonatomic, assign) long subFileCount;
 @property (nonatomic, strong) NSMutableArray<FKTorrentSubFileModel *> *subFiles;
 @property (nonatomic, copy) NSString *hashValue;

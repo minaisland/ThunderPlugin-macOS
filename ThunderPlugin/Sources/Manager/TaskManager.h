@@ -20,6 +20,8 @@
 
 - (void)createTaskWithURL:(NSString *)urlString;
 
+- (void)createBTTaskWithName:(NSString *)name btFile:(NSString *)btFile fileIndexs:(NSArray *)fileIndex;
+
 - (NSDictionary *)torrentInfoWithMagnetURL:(NSString *)urlString;
 
 - (NSDictionary *)torrentInfoWithFilename:(NSString *)filename path:(NSString *)torrentPath;

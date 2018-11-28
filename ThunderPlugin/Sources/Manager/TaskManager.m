@@ -87,6 +87,13 @@
     [XLTaskHelper createTaskWithURL:urlString];
 }
 
+- (void)createBTTaskWithName:(NSString *)name btFile:(NSString *)btFile fileIndexs:(NSArray *)fileIndex {
+    if (name && [name isEqualToString:@""]) return;
+    if (btFile && [btFile isEqualToString:@""]) return;
+    if (fileIndex && fileIndex.count <= 0) return;
+    [XLTaskHelper createBTTaskWithName:name btFile:btFile fileIndexs:fileIndex];
+}
+
 - (void)setOnCompletion:(NSDictionary *)info {
     if (self.onMagnetCompletion != nil && [info[@"DSKeyTaskInfoTaskState"] integerValue] == 3) {
         self.onMagnetCompletion(info);
